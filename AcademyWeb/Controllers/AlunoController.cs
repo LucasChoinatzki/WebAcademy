@@ -74,12 +74,6 @@ namespace WebAcademy.Controllers
 
             return View();
         }
-        [HttpPost]
-        public IActionResult Alterarb(Aluno a)
-        {
-            _alunoDAO.Alterar(a);
-            return RedirectToAction("EditarPerfil",a);
-        }
         public IActionResult GerenciamentoAluno()
         {
             ViewBag.DataHora = DateTime.Now;
@@ -88,9 +82,17 @@ namespace WebAcademy.Controllers
         }
         public IActionResult Alterar(int id)
         {
-            Aluno b = _alunoDAO.BuscarPorId(id);
-            return View(b);
+           return View
+               (_alunoDAO.BuscarPorId(id));
         }
+
+        [HttpPost]
+        public IActionResult Alterar(Aluno al)
+        {
+            _alunoDAO.Alterar(al);
+            return RedirectToAction("IndexAluno");
+       
+    }
         public IActionResult ViewAula()
         {
             ViewBag.DataHora = DateTime.Now;
