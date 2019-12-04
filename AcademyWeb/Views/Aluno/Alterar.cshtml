@@ -30,10 +30,9 @@
                     <input type="text" class="form-control"
                            asp-for="Senha" />
                 </div>
-                <div class="form-group">
-                    <label>Imagem:</label>
-                    <input type="text" class="form-control"
-                           asp-for="Imagem" />
+                <div class="form-group" id="Imagem">
+                    <label>Imagem:</label><br />
+                    <input type="file" name="fupImagem" />
                 </div>
                 <div class="form-group">
                     <label>Sobre:</label>
@@ -41,5 +40,5 @@
                            asp-for="Sobre" />
                 </div>
                 <input type="submit" class="btn btn-success" value="Salvar" />
-        </fieldset>
+</fieldset>
     </form>

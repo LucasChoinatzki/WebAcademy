@@ -68,20 +68,18 @@ namespace AcademyWeb.Controllers
             
         }
         [HttpPost]
-        public IActionResult ExCadastrar(Exercicio exercicio, int drpLista)
+        public IActionResult CadastrarExercicio(Exercicio exercicio, int drpLista)
         {
             ViewBag.Lista = new SelectList(_listaTreinoDAO.ListarTodos(), "IdListaTreino", "NomeLista");
-
-            if (ModelState.IsValid)
-            {
-                exercicio.ListaTreino = _listaTreinoDAO.BuscarPorId(drpLista);
+            exercicio.ListaTreino = _listaTreinoDAO.BuscarPorId(drpLista);
+            
 
                 _exercicioDAO.Cadastrar(exercicio);
-                return RedirectToAction("CadastrarExercicio");
-            }
             ModelState.AddModelError
-               ("", "Erro");
-            return RedirectToAction("CadastrarExercicio");
+              ("", "Adicione Mais exercicios a lista Desejada ou Prossiga para o cadastro de Treino");
+            return View();
+            
+            
         }
         
         [HttpPost]
@@ -137,11 +135,18 @@ namespace AcademyWeb.Controllers
         {
             return View();
         }
-        [HttpPost]
-        public IActionResult viewExercicio(ListaTreino v)
-        {  
+
+        public IActionResult idLista(int id)
+        {
+            ListaTreino lt = _listaTreinoDAO.BuscarPorId(id);
+            
+            return RedirectToAction("viewExercicio",lt);
+        }
+       
+        public IActionResult viewExercicio(ListaTreino lt)
+        {
             List<Exercicio> ex = new List<Exercicio>();
-            ex = _exercicioDAO.ListarporLista(v);
+            ex = _exercicioDAO.ListarporLista(lt);
             return View(ex);
         }
     }

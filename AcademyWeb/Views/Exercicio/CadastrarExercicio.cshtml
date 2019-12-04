@@ -3,7 +3,7 @@
 @{
     
 }
-    <form asp-action="ExCadastrar" method="post"
+    <form asp-action="CadastrarExercicio" method="post"
           enctype="multipart/form-data">
         <fieldset>
             <legend>Exercicios</legend>
@@ -45,10 +45,11 @@
                 <div>
                     <input type="submit" class="btn btn-success" value="Adicionar Exercicio" />
                 <br ><br />
-                <a asp-action="CadastrarTreino" class="btn btn-danger">
-                    Vincular Treino
-                </a>
+                
             </div>
             
         </fieldset>
     </form>
+    <a asp-action="CadastrarTreino" class="btn btn-danger">
+        Vincular Treino
+    </a>

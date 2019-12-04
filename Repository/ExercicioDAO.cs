@@ -29,10 +29,10 @@ namespace Repository
         }
 
 
-        public List<Exercicio> ListarporLista(ListaTreino listaTreino)
+        public List<Exercicio> ListarporLista(ListaTreino lista)
         {
-            return ctx.Exercicios.Include(x => x.ListaTreino).Include(x => x.Equipamento).Include(x => x.Quantidade).Include(x => x.Repeticoes).Where(x => x.ListaTreino == listaTreino).ToList();
-            
+            return ctx.Exercicios.Include(x => x.ListaTreino).Where(x => x.ListaTreino == lista).ToList();
+
         }
         public Exercicio BuscarPorId(int id)
         {

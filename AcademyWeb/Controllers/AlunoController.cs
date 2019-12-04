@@ -87,12 +87,29 @@ namespace WebAcademy.Controllers
         }
 
         [HttpPost]
-        public IActionResult Alterar(Aluno al)
+        public IActionResult Alterar(Aluno al, IFormFile fupImagem)
         {
+            if (fupImagem != null)
+            {
+                //paste: ecommerceimagens
+                string arquivo = Guid.NewGuid().ToString() +
+                    Path.GetExtension(fupImagem.FileName);
+                string caminho = Path.Combine(_hosting.WebRootPath,
+                    "Academyimagens", arquivo);
+                fupImagem.CopyTo(
+                    new FileStream(caminho, FileMode.Create));
+                al.Imagem = arquivo;
+            }
+            else
+            {
+                al.Imagem = "semimagem.jfif";
+            }
+
+
             _alunoDAO.Alterar(al);
             return RedirectToAction("IndexAluno");
-       
-    }
+
+        }
         public IActionResult ViewAula()
         {
             ViewBag.DataHora = DateTime.Now;

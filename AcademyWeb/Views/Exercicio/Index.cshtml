@@ -50,14 +50,14 @@
                 <td>@item.Aluno.Nome</td>
 
                 <td>@item.Periodo</td>
-                <td>
-                    <a asp-action="viewExercicio"
-                       asp-route-id="@item.ListaTreino.IdListaTreino"
-                       class="btn btn-outline-success">
-                        Lista Exercicios
+                
+               <td> 
+                    <a asp-action="idLista"
+                    asp-route-id="@item.ListaTreino.IdListaTreino"
+                    class="btn btn-success">
+                    Exercicio
                     </a>
                 </td>
-                
             </tr>
         }
     </tbody>

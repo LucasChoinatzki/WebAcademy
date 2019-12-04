@@ -13,8 +13,8 @@ namespace Domain
         public Exercicio()
         {
             ListaTreino = new ListaTreino();
-           
-            CriadoEm = DateTime.Now;
+
+            
 
         }
         //Atributos
@@ -24,7 +24,7 @@ namespace Domain
         public ListaTreino ListaTreino { get; set; }
         public Int32 Repeticoes { get; set; }
         public Int32 Quantidade { get; set; }
-        public DateTime CriadoEm { get; set; }
-        
+      
+
     }
 }
