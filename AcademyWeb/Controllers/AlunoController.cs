@@ -50,7 +50,7 @@ namespace WebAcademy.Controllers
                 }
                 else
                 {
-                    a.Imagem = "semimagem.jfif";
+                    a.Imagem = "noimage.jfif";
                 }
 
                 if (_alunoDAO.Cadastrar(a))
@@ -102,7 +102,7 @@ namespace WebAcademy.Controllers
             }
             else
             {
-                al.Imagem = "semimagem.jfif";
+                al.Imagem = "noimage.jfif";
             }
 
 

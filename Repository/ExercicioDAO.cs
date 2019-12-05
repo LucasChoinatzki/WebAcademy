@@ -15,9 +15,7 @@ namespace Repository
         {
             ctx = context;
         }
-
-
-        public bool Cadastrar(Exercicio ex)
+                       public bool Cadastrar(Exercicio ex)
         {
             ctx.Exercicios.Add(ex);
             ctx.SaveChanges();
