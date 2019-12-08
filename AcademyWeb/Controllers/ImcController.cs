@@ -32,7 +32,7 @@ namespace AcademyWeb.Controllers
                 imc.Peso = Convert.ToDouble(imc.Peso);
                 imc.Altura = Convert.ToDouble(imc.Altura);
                 imc.Aluno = _alunoDAO.BuscarPorId(drpAlunos);
-                imc.CalcImc = imc.Peso / (imc.Altura * imc.Altura);
+                
                 _alunoDAO.CadastrarIMC(imc);
 
                 return RedirectToAction("Index");

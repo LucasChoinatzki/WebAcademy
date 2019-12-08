@@ -44,7 +44,7 @@ namespace WebAcademy.Controllers
                 }
                 else
                 {
-                    p.Imagem = "noimage.jfif";
+                    p.Imagem = "semimagem.jfif";
                 }
 
                 if (_professorDAO.Cadastrar(p))

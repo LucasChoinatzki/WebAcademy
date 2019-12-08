@@ -18,15 +18,17 @@ namespace WebAcademy.Controllers
         private readonly TreinoDAO _treinoDAO;
             private readonly AlunoDAO _alunoDAO;
             private readonly AulaDAO _aulaDAO;
+        private readonly AvisosDAO _avisosDAO;
             private readonly IHostingEnvironment _hosting;
 
-            public AlunoController(AlunoDAO alunoDAO, IHostingEnvironment hosting, AulaDAO aulaDAO, ExercicioDAO exercicioDAO,TreinoDAO treinoDAO)
+            public AlunoController(AlunoDAO alunoDAO, IHostingEnvironment hosting, AulaDAO aulaDAO, ExercicioDAO exercicioDAO,TreinoDAO treinoDAO, AvisosDAO avisosDAO)
             {
                 _alunoDAO = alunoDAO;
                 _hosting = hosting;
                 _aulaDAO = aulaDAO;
                 _exercicioDAO = exercicioDAO;
                 _treinoDAO = treinoDAO;
+            _avisosDAO = avisosDAO;
             }
 
             [HttpPost]
@@ -39,7 +41,7 @@ namespace WebAcademy.Controllers
                 //Cadastrar a imagem
                 if (fupImagem != null)
                 {
-                    //paste: ecommerceimagens
+                   //paste: ecommerceimagens
                     string arquivo = Guid.NewGuid().ToString() +
                         Path.GetExtension(fupImagem.FileName);
                     string caminho = Path.Combine(_hosting.WebRootPath,
@@ -50,7 +52,7 @@ namespace WebAcademy.Controllers
                 }
                 else
                 {
-                    a.Imagem = "noimage.jfif";
+                    a.Imagem = "semimagem.jfif";
                 }
 
                 if (_alunoDAO.Cadastrar(a))
@@ -65,7 +67,7 @@ namespace WebAcademy.Controllers
         public IActionResult IndexAluno()
             {
                 ViewBag.DataHora = DateTime.Now;
-                return View(_alunoDAO.ListarTodos());
+                return View(_avisosDAO.ListarTodos());
             }
 
         
@@ -86,12 +88,14 @@ namespace WebAcademy.Controllers
                (_alunoDAO.BuscarPorId(id));
         }
 
+
         [HttpPost]
         public IActionResult Alterar(Aluno al, IFormFile fupImagem)
         {
+           
             if (fupImagem != null)
             {
-                //paste: ecommerceimagens
+            
                 string arquivo = Guid.NewGuid().ToString() +
                     Path.GetExtension(fupImagem.FileName);
                 string caminho = Path.Combine(_hosting.WebRootPath,
@@ -102,7 +106,7 @@ namespace WebAcademy.Controllers
             }
             else
             {
-                al.Imagem = "noimage.jfif";
+                al.Imagem = "semimagem.jfif";
             }
 
 

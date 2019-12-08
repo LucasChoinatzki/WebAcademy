@@ -19,5 +19,6 @@ namespace Repository
         public DbSet<Exercicio> Exercicios { get; set; }
         public DbSet<IMCAlunos> IMCAlunos { get; set; }
         public DbSet<ListaTreino> ListaTreinos { get; set; }
+        public DbSet<Avisos> Avisos { get; set; }
     }
 }

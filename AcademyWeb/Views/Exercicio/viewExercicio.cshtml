@@ -1,15 +1,15 @@
 ﻿@model List<Exercicio>
 
 @{
-    int v = 0;
 
 }
 
-
+<center>Lista Exercicios</center>
+<br /><br />
 @foreach (Exercicio item in Model)
 {<center>
     <h2>@item.ListaTreino.NomeLista</h2>
-    <h3>@item.ListaTreino.DSemana</h3>
+    <h4>@item.ListaTreino.DSemana</h4>
 </center>
 }
     <table class="table table-hover table-striped"

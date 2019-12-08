@@ -64,7 +64,7 @@ namespace Repository
 
         public bool CadastrarIMC(IMCAlunos imc)
         {
-
+            imc.CalcImc = imc.Peso / (imc.Altura * imc.Altura);
             ctx.IMCAlunos.Add(imc);
             ctx.SaveChanges();
             return true;
